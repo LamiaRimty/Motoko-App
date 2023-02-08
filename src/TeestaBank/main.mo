@@ -1,11 +1,17 @@
 import Debug "mo:base/Debug";
+import Int "mo:base/Int";
 import Nat "mo:base/Nat";
+import Time "mo:base/Time";
 
 actor TeestaBank{
   stable var currentValue: Nat= 300;
    //currentValue:=100;
   Debug.print(debug_show(currentValue));
    
+  let startTime = Time.now();
+  Debug.print(debug_show(startTime));
+
+
   public query func checkBalance(): async Nat{
     return currentValue;
   };
