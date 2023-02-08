@@ -1,8 +1,9 @@
 import Debug "mo:base/Debug";
+import Nat "mo:base/Nat";
 
 actor TeestaBank{
-  var currentValue= 300;
-   currentValue:=100;
+  stable var currentValue: Nat= 300;
+   //currentValue:=100;
   Debug.print(debug_show(currentValue));
    
   public query func checkBalance(): async Nat{
