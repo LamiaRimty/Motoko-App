@@ -17570,9 +17570,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 const idlFactory = ({ IDL }) => {
   return IDL.Service({
-    'checkBalance' : IDL.Func([], [IDL.Nat], ['query']),
-    'deposit' : IDL.Func([IDL.Nat], [], ['oneway']),
-    'withdraw' : IDL.Func([IDL.Nat], [], ['oneway']),
+    'checkBalance' : IDL.Func([], [IDL.Float64], ['query']),
+    'compoundInterest' : IDL.Func([], [], ['oneway']),
+    'deposit' : IDL.Func([IDL.Float64], [], ['oneway']),
+    'withdraw' : IDL.Func([IDL.Float64], [], ['oneway']),
   });
 };
 const init = ({ IDL }) => { return []; };
