@@ -1,3 +1,4 @@
 service : {
-  deposit: () -> () oneway;
+  deposit: (nat) -> () oneway;
+  withdraw: (nat) -> () oneway;
 }
