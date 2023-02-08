@@ -5,6 +5,10 @@ actor TeestaBank{
    currentValue:=100;
   Debug.print(debug_show(currentValue));
    
+  public query func checkBalance(): async Nat{
+    return currentValue;
+  };
+
   public func deposit(amount: Nat){
     currentValue += amount;
     Debug.print(debug_show(currentValue));
