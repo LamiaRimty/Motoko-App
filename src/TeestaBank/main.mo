@@ -9,13 +9,13 @@ actor TeestaBank{
    //currentValue:=100;
   Debug.print(debug_show(currentValue));
    
-  stable var startTime = Time.now();
-  Debug.print(debug_show(startTime));
+  stable var startTime= Time.now();//can't hold sate
+   Debug.print(debug_show(startTime));
 
 
-  public query func checkBalance(): async Float{
-    return currentValue;
-  };
+ public query func checkBalance(): async Float{
+  return currentValue;//read only 
+ };
 
   public func deposit(amount: Float){
     currentValue += amount;
@@ -24,20 +24,20 @@ actor TeestaBank{
 
    public func withdraw( amount:Float){
     let tempValue: Float = currentValue -amount;
-    if(tempValue>=0){
+    if(tempValue >= 0 ){
      currentValue -= amount;
         return Debug.print(debug_show(currentValue));
     }
     else
     {
-      Debug.print(debug_show("Your Current Balance is insuffient!!"));
+      return Debug.print(debug_show("Your Current Balance is insuffient!!"));
     }
     
    };
 
    public func compoundInterest(){
       let currentTime= Time.now();
-      let timeElapsedNS = currentTime;
+      let timeElapsedNS = currentTime-startTime;
       let timeElapsedS = currentTime/1000000000;
       currentValue:= currentValue*(1.01**Float.fromInt(timeElapsedS));
       startTime := currentTime;
