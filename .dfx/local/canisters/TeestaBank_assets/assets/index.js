@@ -17735,12 +17735,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _declarations_TeestaBank__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../declarations/TeestaBank */ "./src/declarations/TeestaBank/index.js");
 
 
-window.addEventListener("load", async()=>{
+window.addEventListener("load", async ()=>{
   const currentAmount = await _declarations_TeestaBank__WEBPACK_IMPORTED_MODULE_0__.TeestaBank.checkBalance();
   document.getElementById("balance").innerText =Math.round(currentAmount*100)/100;
+
+
 });
 
-// document.querySelector("form").addEventListener()
+document.querySelector("form").addEventListener("submit" ,async(event)=>{
+  event.preventDefault();
+
+  const deposit=parseFloat(document.getElementById("deposit-amount").value);
+  const withdraw=parseFloat(document.getElementById("withdraw-amount").value);
+
+  await _declarations_TeestaBank__WEBPACK_IMPORTED_MODULE_0__.TeestaBank.deposit(deposit-amount);
+  
+});
+
 
 // document.querySelector("form").addEventListener("submit", async (e) => {
 //   e.preventDefault();

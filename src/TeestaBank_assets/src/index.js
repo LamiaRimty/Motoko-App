@@ -1,11 +1,22 @@
 import { TeestaBank } from "../../declarations/TeestaBank";
 
-window.addEventListener("load", async()=>{
+window.addEventListener("load", async ()=>{
   const currentAmount = await TeestaBank.checkBalance();
   document.getElementById("balance").innerText =Math.round(currentAmount*100)/100;
+
+
 });
 
-// document.querySelector("form").addEventListener()
+document.querySelector("form").addEventListener("submit" ,async(event)=>{
+  event.preventDefault();
+
+  const deposit=parseFloat(document.getElementById("deposit-amount").value);
+  const withdraw=parseFloat(document.getElementById("withdraw-amount").value);
+
+  await TeestaBank.deposit(deposit-amount);
+  
+});
+
 
 // document.querySelector("form").addEventListener("submit", async (e) => {
 //   e.preventDefault();
