@@ -17735,23 +17735,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _declarations_TeestaBank__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../declarations/TeestaBank */ "./src/declarations/TeestaBank/index.js");
 
 
-document.querySelector("form").addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const button = e.target.querySelector("button");
-
-  const name = document.getElementById("name").value.toString();
-
-  button.setAttribute("disabled", true);
-
-  // Interact with foo actor, calling the greet method
-  const greeting = await _declarations_TeestaBank__WEBPACK_IMPORTED_MODULE_0__.TeestaBank.greet(name);
-
-  button.removeAttribute("disabled");
-
-  document.getElementById("greeting").innerText = greeting;
-
-  return false;
+window.addEventListener("load", async()=>{
+  const currentAmount = await _declarations_TeestaBank__WEBPACK_IMPORTED_MODULE_0__.TeestaBank.checkBalance();
+  document.getElementById("balance").innerText =Math.round(currentAmount*100)/100;
 });
+
+// document.querySelector("form").addEventListener()
+
+// document.querySelector("form").addEventListener("submit", async (e) => {
+//   e.preventDefault();
+//   const button = e.target.querySelector("button");
+
+//   const name = document.getElementById("name").value.toString();
+
+//   button.setAttribute("disabled", true);
+
+//   // Interact with foo actor, calling the greet method
+//   const greeting = await TeestaBank.greet(name);
+
+//   button.removeAttribute("disabled");
+
+//   document.getElementById("greeting").innerText = greeting;
+
+//   return false;
+// });
 
 })();
 

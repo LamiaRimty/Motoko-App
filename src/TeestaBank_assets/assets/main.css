@@ -1,10 +1,11 @@
 html,
 body {
-  background-color: #211F2B;
+  background-color: #243763;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  color: white;
 }
 
 h1,
@@ -20,7 +21,7 @@ h1 {
 }
 
 h2 {
-  color: rgba(255, 255, 255, 0.5);
+  color: white;
   font-size: 14px;
   font-weight: 500;
   margin-bottom: 10px;
@@ -63,12 +64,12 @@ textarea:focus {
 }
 
 .container {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: #0F6292;
   width: 300px;
   margin: 0 auto;
   border-radius: 14px;
   padding: 30px 30px 20px 30px;
-  margin-top: 50px;
+  margin-top: 100px;
 }
 
 input[name="amount"] {
@@ -90,21 +91,21 @@ input[type=number]::-webkit-outer-spin-button {
   cursor: pointer;
   font-size: 20px;
   font-weight: 600;
-  border: 2px #617BFF solid;
-  color: white;
-  background-color: #617BFF;
+  border: 2px #FF6E31 solid;
+  color: #243763;
+  background-color: #FF6E31;
   padding: 15px;
   transition: all 0.2s;
 }
 
 #submit-btn:hover {
-  border: 2px #8095FF solid;
-  background-color: #8095FF;
+  border: 2px #AD8E70 solid;
+  background-color: #AD8E70;
 }
 
 #submit-btn:disabled {
-  border: 2px rgba(255, 255, 255, 0.1) solid;
-  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px #AD8E70(255, 255, 255, 0.1) solid;
+  background-color: #AD8E70(255, 255, 255, 0.1);
 }
 
 textarea[name="address"] {
