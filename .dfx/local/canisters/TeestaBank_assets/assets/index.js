@@ -17738,38 +17738,32 @@ __webpack_require__.r(__webpack_exports__);
 window.addEventListener("load", async ()=>{
   const currentAmount = await _declarations_TeestaBank__WEBPACK_IMPORTED_MODULE_0__.TeestaBank.checkBalance();
   document.getElementById("balance").innerText =Math.round(currentAmount*100)/100;
-
-
+  console.log("loading!");
 });
 
 document.querySelector("form").addEventListener("submit" ,async(event)=>{
-  event.preventDefault();
+   console.log("submitted");
+    event.preventDefault();
 
-  const deposit=parseFloat(document.getElementById("deposit-amount").value);
-  const withdraw=parseFloat(document.getElementById("withdraw-amount").value);
+    const button= event.target.querySelector("#submit-btn");
 
-  await _declarations_TeestaBank__WEBPACK_IMPORTED_MODULE_0__.TeestaBank.deposit(deposit-amount);
+  const depositAmount =parseFloat(document.getElementById("deposit-amount").value);
+  const withdrawAmount =parseFloat(document.getElementById("withdraw-amount").value);
+   
+  button.setAttribute("disabled",true);
   
-});
+  await _declarations_TeestaBank__WEBPACK_IMPORTED_MODULE_0__.TeestaBank.deposit(depositAmount);
+   //await TeestaBank.withdraw(depositAmount);
 
+   const currentAmount = await _declarations_TeestaBank__WEBPACK_IMPORTED_MODULE_0__.TeestaBank.checkBalance();
+   document.getElementById("balance").innerText =Math.round(currentAmount*100)/100;
 
-// document.querySelector("form").addEventListener("submit", async (e) => {
-//   e.preventDefault();
-//   const button = e.target.querySelector("button");
+  document.getElementById("deposit-amount").value="";
+  button.removeAttribute("disabled");
 
-//   const name = document.getElementById("name").value.toString();
+  
+ });
 
-//   button.setAttribute("disabled", true);
-
-//   // Interact with foo actor, calling the greet method
-//   const greeting = await TeestaBank.greet(name);
-
-//   button.removeAttribute("disabled");
-
-//   document.getElementById("greeting").innerText = greeting;
-
-//   return false;
-// });
 
 })();
 
