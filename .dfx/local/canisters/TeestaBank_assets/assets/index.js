@@ -17752,16 +17752,21 @@ document.querySelector("form").addEventListener("submit" ,async(event)=>{
    
   button.setAttribute("disabled",true);
   
-  await _declarations_TeestaBank__WEBPACK_IMPORTED_MODULE_0__.TeestaBank.deposit(depositAmount);
-  await _declarations_TeestaBank__WEBPACK_IMPORTED_MODULE_0__.TeestaBank.withdraw(depositAmount);
+  if(document.getElementById("deposit-amount").value.length!= 0){
+    await _declarations_TeestaBank__WEBPACK_IMPORTED_MODULE_0__.TeestaBank.deposit(depositAmount);
+  }
 
+  else if(document.getElementById("withdraw-amount").value.length!= 0){
+    await _declarations_TeestaBank__WEBPACK_IMPORTED_MODULE_0__.TeestaBank.withdraw(withdrawAmount);
+  }
+  
    const currentAmount = await _declarations_TeestaBank__WEBPACK_IMPORTED_MODULE_0__.TeestaBank.checkBalance();
    document.getElementById("balance").innerText =Math.round(currentAmount*100)/100;
 
   document.getElementById("deposit-amount").value="";
+  document.getElementById("withdraw-amount").value="";
   button.removeAttribute("disabled");
 
-  
  });
 
 

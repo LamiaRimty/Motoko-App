@@ -17,18 +17,19 @@ document.querySelector("form").addEventListener("submit" ,async(event)=>{
    
   button.setAttribute("disabled",true);
   
-  if(document.getElementById("input-amount").value.length!= 0){
+  if(document.getElementById("deposit-amount").value.length!= 0){
     await TeestaBank.deposit(depositAmount);
   }
 
-  else{
-    await TeestaBank.withdraw(depositAmount);
+  else if(document.getElementById("withdraw-amount").value.length!= 0){
+    await TeestaBank.withdraw(withdrawAmount);
   }
   
    const currentAmount = await TeestaBank.checkBalance();
    document.getElementById("balance").innerText =Math.round(currentAmount*100)/100;
 
   document.getElementById("deposit-amount").value="";
+  document.getElementById("withdraw-amount").value="";
   button.removeAttribute("disabled");
 
  });
