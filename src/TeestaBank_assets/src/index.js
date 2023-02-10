@@ -31,6 +31,5 @@ document.querySelector("form").addEventListener("submit" ,async(event)=>{
   document.getElementById("deposit-amount").value="";
   button.removeAttribute("disabled");
 
-  
  });
 
