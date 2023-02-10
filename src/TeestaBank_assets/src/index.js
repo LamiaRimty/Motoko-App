@@ -17,9 +17,14 @@ document.querySelector("form").addEventListener("submit" ,async(event)=>{
    
   button.setAttribute("disabled",true);
   
-  await TeestaBank.deposit(depositAmount);
-   //await TeestaBank.withdraw(depositAmount);
+  if(document.getElementById("input-amount").value.length!= 0){
+    await TeestaBank.deposit(depositAmount);
+  }
 
+  else{
+    await TeestaBank.withdraw(depositAmount);
+  }
+  
    const currentAmount = await TeestaBank.checkBalance();
    document.getElementById("balance").innerText =Math.round(currentAmount*100)/100;
 

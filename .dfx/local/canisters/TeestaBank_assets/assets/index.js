@@ -17753,7 +17753,7 @@ document.querySelector("form").addEventListener("submit" ,async(event)=>{
   button.setAttribute("disabled",true);
   
   await _declarations_TeestaBank__WEBPACK_IMPORTED_MODULE_0__.TeestaBank.deposit(depositAmount);
-   //await TeestaBank.withdraw(depositAmount);
+  await _declarations_TeestaBank__WEBPACK_IMPORTED_MODULE_0__.TeestaBank.withdraw(depositAmount);
 
    const currentAmount = await _declarations_TeestaBank__WEBPACK_IMPORTED_MODULE_0__.TeestaBank.checkBalance();
    document.getElementById("balance").innerText =Math.round(currentAmount*100)/100;
