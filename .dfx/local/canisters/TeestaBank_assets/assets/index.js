@@ -17736,13 +17736,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 window.addEventListener("load", async ()=>{
-  const currentAmount = await _declarations_TeestaBank__WEBPACK_IMPORTED_MODULE_0__.TeestaBank.checkBalance();
-  document.getElementById("balance").innerText =Math.round(currentAmount*100)/100;
+  updateBalance();
   console.log("loading!");
 });
 
 document.querySelector("form").addEventListener("submit" ,async(event)=>{
-   console.log("submitted");
+  // console.log("submitted");
     event.preventDefault();
 
     const button= event.target.querySelector("#submit-btn");
@@ -17756,20 +17755,23 @@ document.querySelector("form").addEventListener("submit" ,async(event)=>{
     await _declarations_TeestaBank__WEBPACK_IMPORTED_MODULE_0__.TeestaBank.deposit(depositAmount);
   }
 
-  else if(document.getElementById("withdraw-amount").value.length!= 0){
+ if(document.getElementById("withdraw-amount").value.length!= 0){
     await _declarations_TeestaBank__WEBPACK_IMPORTED_MODULE_0__.TeestaBank.withdraw(withdrawAmount);
   }
   
-   const currentAmount = await _declarations_TeestaBank__WEBPACK_IMPORTED_MODULE_0__.TeestaBank.checkBalance();
-   document.getElementById("balance").innerText =Math.round(currentAmount*100)/100;
-
   await _declarations_TeestaBank__WEBPACK_IMPORTED_MODULE_0__.TeestaBank.compoundInterest();
+  updateBalance();
 
   document.getElementById("deposit-amount").value="";
   document.getElementById("withdraw-amount").value="";
   button.removeAttribute("disabled");
 
  });
+
+ async function updateBalance(){
+  const currentAmount = await _declarations_TeestaBank__WEBPACK_IMPORTED_MODULE_0__.TeestaBank.checkBalance();
+  document.getElementById("balance").innerText =Math.round(currentAmount * 100) / 100;
+ }
 
 
 })();

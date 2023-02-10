@@ -6,7 +6,7 @@ window.addEventListener("load", async ()=>{
 });
 
 document.querySelector("form").addEventListener("submit" ,async(event)=>{
-   console.log("submitted");
+  // console.log("submitted");
     event.preventDefault();
 
     const button= event.target.querySelector("#submit-btn");
@@ -20,11 +20,12 @@ document.querySelector("form").addEventListener("submit" ,async(event)=>{
     await TeestaBank.deposit(depositAmount);
   }
 
-  else if(document.getElementById("withdraw-amount").value.length!= 0){
+ if(document.getElementById("withdraw-amount").value.length!= 0){
     await TeestaBank.withdraw(withdrawAmount);
   }
   
   await TeestaBank.compoundInterest();
+  updateBalance();
 
   document.getElementById("deposit-amount").value="";
   document.getElementById("withdraw-amount").value="";
@@ -34,6 +35,6 @@ document.querySelector("form").addEventListener("submit" ,async(event)=>{
 
  async function updateBalance(){
   const currentAmount = await TeestaBank.checkBalance();
-  document.getElementById("balance").innerText =Math.round(currentAmount*100)/100;
+  document.getElementById("balance").innerText =Math.round(currentAmount * 100) / 100;
  }
 
