@@ -17756,7 +17756,7 @@ document.querySelector("form").addEventListener("submit" ,async(event)=>{
     await _declarations_TeestaBank__WEBPACK_IMPORTED_MODULE_0__.TeestaBank.deposit(depositAmount);
   }
 
-  else if(document.getElementById("withdraw-amount").value.length!= 0){
+  else if(document.getElementById("withdrawl-amount").value.length!= 0){
     await _declarations_TeestaBank__WEBPACK_IMPORTED_MODULE_0__.TeestaBank.withdraw(withdrawAmount);
   }
   
