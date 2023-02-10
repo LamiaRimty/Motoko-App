@@ -1,8 +1,7 @@
 import { TeestaBank } from "../../declarations/TeestaBank";
 
 window.addEventListener("load", async ()=>{
-  const currentAmount = await TeestaBank.checkBalance();
-  document.getElementById("balance").innerText =Math.round(currentAmount*100)/100;
+  updateBalance();
   console.log("loading!");
 });
 
@@ -25,12 +24,16 @@ document.querySelector("form").addEventListener("submit" ,async(event)=>{
     await TeestaBank.withdraw(withdrawAmount);
   }
   
-   const currentAmount = await TeestaBank.checkBalance();
-   document.getElementById("balance").innerText =Math.round(currentAmount*100)/100;
+  await TeestaBank.compoundInterest();
 
   document.getElementById("deposit-amount").value="";
   document.getElementById("withdraw-amount").value="";
   button.removeAttribute("disabled");
 
  });
+
+ async function updateBalance(){
+  const currentAmount = await TeestaBank.checkBalance();
+  document.getElementById("balance").innerText =Math.round(currentAmount*100)/100;
+ }
 

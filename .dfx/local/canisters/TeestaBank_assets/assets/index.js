@@ -17756,12 +17756,14 @@ document.querySelector("form").addEventListener("submit" ,async(event)=>{
     await _declarations_TeestaBank__WEBPACK_IMPORTED_MODULE_0__.TeestaBank.deposit(depositAmount);
   }
 
-  else if(document.getElementById("withdrawl-amount").value.length!= 0){
+  else if(document.getElementById("withdraw-amount").value.length!= 0){
     await _declarations_TeestaBank__WEBPACK_IMPORTED_MODULE_0__.TeestaBank.withdraw(withdrawAmount);
   }
   
    const currentAmount = await _declarations_TeestaBank__WEBPACK_IMPORTED_MODULE_0__.TeestaBank.checkBalance();
    document.getElementById("balance").innerText =Math.round(currentAmount*100)/100;
+
+  await _declarations_TeestaBank__WEBPACK_IMPORTED_MODULE_0__.TeestaBank.compoundInterest();
 
   document.getElementById("deposit-amount").value="";
   document.getElementById("withdraw-amount").value="";
